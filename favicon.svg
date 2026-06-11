@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#0a0c0a"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="9.5" fill="none" stroke="#233023"/>
+  <!-- prompt chevron -->
+  <path d="M13 19 L29 32 L13 45" fill="none" stroke="#7fd17f" stroke-width="7"
+    stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- block cursor with glow -->
+  <rect x="33" y="29" width="18" height="20" fill="#7fd17f" opacity="0.25" rx="3"
+    transform="translate(-1.5 -1.5) scale(1.06)"/>
+  <rect x="34" y="30" width="16" height="18" rx="2" fill="#7fd17f"/>
+</svg>
