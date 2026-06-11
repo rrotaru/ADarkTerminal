@@ -396,10 +396,13 @@
 
   /* ---------- main loop ---------- */
 
+  var endingQueued = false;
+
   function handleEvent(ev) {
     if (ev === 'stage:8') {
       logSeq(E.STAGES[8].enter, 'story');
     } else if (ev === 'ending') {
+      endingQueued = true;
       logSeq(FINALE, 'story');
       setTimeout(showEnding, FINALE.length * 900 + 1500);
     }
@@ -469,7 +472,9 @@
   /* ---------- boot ---------- */
 
   load();
-  if (S.ended && !S.seen.endingShown) showEnding();
+  // fallback for saves that ended before this boot; if the ending just
+  // fired during offline catch-up, the finale sequence is already queued
+  if (S.ended && !S.seen.endingShown && !endingQueued) showEnding();
   update();
   setInterval(loop, 200);
   window.addEventListener('beforeunload', function () { save(true); });
