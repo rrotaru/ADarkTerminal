@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>a dark terminal</title>
+  <meta name="description"
+    content="an incremental game about the eight stages of ai-assisted development. inspired by a dark forest.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="crt" aria-hidden="true"></div>
+
+  <header>
+    <h1>a dark terminal<span class="cursor">▋</span></h1>
+    <div id="stageBanner">stage 1 · the dark terminal</div>
+  </header>
+
+  <main>
+    <section id="logCol" aria-label="event log">
+      <div id="log"></div>
+    </section>
+
+    <section id="actionsCol" aria-label="actions">
+      <div id="actions"></div>
+      <div id="evolve"></div>
+      <div id="upgradesHead" class="head" style="display:none">upgrades</div>
+      <div id="upgrades"></div>
+    </section>
+
+    <aside id="statsCol" aria-label="resources">
+      <div class="head">resources</div>
+      <div id="resources"></div>
+    </aside>
+  </main>
+
+  <footer>
+    <a href="#" id="btnSave">save</a> ·
+    <a href="#" id="btnReset">reset</a> ·
+    <a href="https://github.com/TinyTakinTeller/GodotProjectZero"
+       target="_blank" rel="noopener">inspired by a dark forest</a> ·
+    <a href="https://steve-yegge.medium.com/the-future-of-coding-agents-e9451a84207c"
+       target="_blank" rel="noopener">the 8 stages</a>
+  </footer>
+
+  <div id="ending" class="hidden" role="dialog" aria-label="ending">
+    <div id="endingBox">
+      <div class="evolve-title">stage 8 · the orchestrator</div>
+      <p class="end-line">the work continues without you.</p>
+      <div id="endStats"></div>
+      <div class="end-buttons">
+        <button id="btnKeepWatching" class="action">
+          <span class="label">keep watching</span>
+        </button>
+        <button id="btnBeginAgain" class="action">
+          <span class="label">begin again</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/engine.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
