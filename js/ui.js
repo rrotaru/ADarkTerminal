@@ -482,6 +482,6 @@
   setInterval(loop, 200);
   window.addEventListener('beforeunload', function () { if (!resetting) save(true); });
   document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'hidden') save(true);
+    if (document.visibilityState === 'hidden' && !resetting) save(true);
   });
 })();
