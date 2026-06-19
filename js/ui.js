@@ -11,6 +11,7 @@
   var SAVE_KEY = 'adarkterminal.save.v1';
 
   var S; // game state
+  var resetting = false;
 
   /* ---------- log ---------- */
 
@@ -341,6 +342,7 @@
 
   document.getElementById('btnBeginAgain').addEventListener('click', function () {
     if (!window.confirm('wipe the terminal and begin again?')) return;
+    resetting = true;
     localStorage.removeItem(SAVE_KEY);
     window.location.reload();
   });
@@ -390,6 +392,7 @@
   document.getElementById('btnReset').addEventListener('click', function (e) {
     e.preventDefault();
     if (!window.confirm('wipe the terminal and begin again?')) return;
+    resetting = true;
     localStorage.removeItem(SAVE_KEY);
     window.location.reload();
   });
@@ -477,8 +480,8 @@
   if (S.ended && !S.seen.endingShown && !endingQueued) showEnding();
   update();
   setInterval(loop, 200);
-  window.addEventListener('beforeunload', function () { save(true); });
+  window.addEventListener('beforeunload', function () { if (!resetting) save(true); });
   document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'hidden') save(true);
+    if (document.visibilityState === 'hidden' && !resetting) save(true);
   });
 })();
